@@ -1,0 +1,55 @@
+<div class="form-container"> 
+    <h2>Assign Grade to Student</h2>
+    <form (ngSubmit)="saveStudent()" #studentForm="ngForm" class="form">
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Student Name</mat-label>
+        <input matInput type="text" id="name" name="name"
+          [(ngModel)]="student.studentName"required #name="ngModel"/>
+        <mat-error *ngIf="name.invalid && name.touched">Name is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Student Id</mat-label>
+        <input matInput type="text" id="name" name="name"
+          [(ngModel)]="student.studentNumber"required #name="ngModel"/>
+        <mat-error *ngIf="name.invalid && name.touched">Number is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Subject</mat-label>
+        <mat-select name="subject" [(ngModel)]="student.subject" required #subject="ngModel">
+          <mat-option *ngFor="let subject of subjects" [value]="subject">
+            {{ subject }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="subject.invalid && subject.touched">Subject is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Grade</mat-label>
+        <mat-select name="grade" [(ngModel)]="student.grade" required #grade="ngModel">
+          <mat-option *ngFor="let grade of grades" [value]="grade">
+            {{ grade }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="grade.invalid && grade.touched">Grade is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Remark</mat-label>
+        <textarea matInput id="remark" name="remark" [(ngModel)]="student.remark" rows="4" #remark="ngModel"></textarea>
+        <mat-error *ngIf="remark.invalid && remark.touched">Remark is required.</mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="studentForm.invalid">
+        Submit
+      </button>
+    </form>
+  </div>
+  
+
+
