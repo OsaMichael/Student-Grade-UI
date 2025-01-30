@@ -47,7 +47,8 @@ saveStudent() {
     });
   }
 
-  ngOnInit(): void {
+
+   ngOnInit(): void {
 
   }
   

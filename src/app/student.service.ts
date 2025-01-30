@@ -17,5 +17,31 @@ export class StudentService {
   getStudents(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/GetStudents`); 
   }
+
+  // editStudent(studentNumber: string) {
+  //   this.router.navigate(['/edit-student', studentNumber]); // Navigate to the edit page
+  // }
+  //////
+
+  editStudent(student: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/UpdateStudent`, student );
+  }
+
+  // updateStudent(student: any): Observable<any> {
+  //   return this.http.put<any>(`${this.apiUrl}/${student.studentNumber}`, student);
+  // }
+
+  getStudentById(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
+  getStudentByNumber(studentNumber: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/getStudentByNumber,${studentNumber}`);
+  }
+
+  updateStudent(student: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${student.studentNumber}`, student);
+  }
+  
 }
 

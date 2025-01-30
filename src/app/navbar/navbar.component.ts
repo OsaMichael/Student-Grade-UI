@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   imports: [RouterModule],
   template: `
     <nav class="navbar">
-      <a routerLink="/" class="navbar-brand">StudentApp</a>
+      <a routerLink="/" class="navbar-brand">Student Drading System</a>
       <ul class="navbar-links">
         <li><a routerLink="/students/add" routerLinkActive="active">Assign Grade</a></li>
         <li><a routerLink="/students" routerLinkActive="active">View Students</a></li>

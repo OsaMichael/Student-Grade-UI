@@ -1,0 +1,38 @@
+<div>
+    <h3>Edit Student</h3>
+    <form (ngSubmit)="saveStudent()">
+      <mat-form-field>
+        <mat-label>Student Name</mat-label>
+        <input matInput [(ngModel)]="student.studentName" name="studentName" required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Student Number</mat-label>
+        <input matInput [(ngModel)]="student.studentNumber" name="studentNumber" readonly>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Subject</mat-label>
+        <mat-select [(ngModel)]="student.subject" name="subject">
+          <mat-option *ngFor="let sub of subjects" [value]="sub">{{ sub }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Grade</mat-label>
+        <mat-select [(ngModel)]="student.grade" name="grade">
+          <mat-option *ngFor="let grade of grades" [value]="grade">{{ grade }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <mat-label>Remark</mat-label>
+        <mat-select [(ngModel)]="student.remark" name="remark">
+          <mat-option *ngFor="let remark of remarks" [value]="remark">{{ remark }}</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+  
+      <button mat-raised-button color="primary" type="submit">Save</button>
+    </form>
+  </div>
+  

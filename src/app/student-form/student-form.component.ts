@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from '../student.service';
 import { CommonModule } from '@angular/common';
@@ -22,11 +22,16 @@ import { MatTableModule } from '@angular/material/table';
   styleUrls: ['./student-form.component.css'],
 })
 export class StudentFormComponent implements OnInit {
-  student: any = { studentName: '',studentNumber: '', subject: '', grade: '', remark:'' };
+  //student: any = { studentName: '',studentNumber: '', subject: '', grade: '', remark:'' };
   subjects: string[] = ['Math', 'Science', 'History', 'English', 'Art'];
   grades: string[] = ['A', 'B', 'C', 'D', 'E', 'F'];
   students: any[] = [];
-  displayedColumns: string[] = ['studentName', 'studentNumber','subject', 'grade', 'remark'];
+  selectedStudent: any | null = null;
+  //@Input() student1: any = {};
+  displayedColumns: string[] = ['studentName', 'studentNumber','subject', 'grade', 'remark','actions'];
+  @Input() student: any = { studentName: '', studentNumber: '', subject: '', grade: '', remark: '' };
+  @Output() save = new EventEmitter<any>();
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -37,18 +42,49 @@ export class StudentFormComponent implements OnInit {
   ngOnInit(): void {
     this.studentService1.getStudents().subscribe({
       next: (studentsData) => {
-        this.students = studentsData; 
+       this.students = studentsData; 
 
-        this.router.navigate(['/students']);
+       this.router.navigate(['/students']);
       },
       error: (err) => {
-        console.error('Error fetching students:', err);
-        alert('Failed to fetch students. Please try again.');
+         console.error('Error fetching students:', err);
+       alert('Failed to fetch students. Please try again.');
       },
+     });
+   }
+
+//   selectStudent(student: any) {
+//    this.selectedStudent = structuredClone(student); 
+// }
+
+   selectStudent(student1: any) {
+    this.selectedStudent = { ...student1 }; // Clone the object to prevent binding issues
+   }
+
+  updateStudent(student1: any) {
+    this.studentService1.editStudent(student1).subscribe({
+      next: () => {
+        this.student(); // Refresh the list
+        this.selectedStudent = null; // Hide the form
+      },
+      error: (err) => console.error('Error updating student:', err),
     });
+  }
+
+   saveStudent() {
+    this.save.emit(this.student);
+  }
+
   }
   
 
-}
+
+
+  
+
+
+ 
+
+
 
 

@@ -1,0 +1,68 @@
+/* General container styling */
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Heading styling */
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #333;
+  }
+  
+  /* Form field styling */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between form fields */
+  }
+  
+  .form-field {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    width: 100%; /* Ensure fields take full width */
+  }
+  
+  /* Submit button styling */
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 15px;
+    }
+  
+    button[type="submit"] {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  }
+  
