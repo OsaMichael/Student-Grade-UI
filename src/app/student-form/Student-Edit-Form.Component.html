@@ -1,4 +1,57 @@
+<div class="flex justify-center items-center min-h-screen">
+    <div class="w-96 flex flex-col bg-white p-8 shadow-lg rounded-lg">
+      <h3 class="text-red-600 text-3xl mb-8 text-center">Edit Student</h3>
+      
+      <form [formGroup]="editStudentForm" (ngSubmit)="retrieveId()">
+        <div class="flex flex-col">
+          <mat-label class="text-xs mb-1 text-red-600">Student Name</mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="studentName" type="text" placeholder="Enter your student name" required>
+          </mat-form-field>
+        </div>
+  
+        <div class="flex flex-col">
+          <mat-label class="text-xs mb-1">Student Number</mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="studentNumber" type="text" placeholder="Enter your student number" required>
+          </mat-form-field>
+        </div>
+  
+        <div class="flex flex-col">
+          <mat-label class="text-xs mb-1">Subject</mat-label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="subject">
+              <mat-option *ngFor="let sub of subjects" [value]="sub">{{ sub }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="flex flex-col">
+          <mat-label class="text-xs mb-1">Grade</mat-label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="grade">
+              <mat-option *ngFor="let grade of grades" [value]="grade">{{ grade }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="flex flex-col">
+          <mat-label class="text-xs mb-1">Remark</mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="remark" type="text" placeholder="Enter your remark">
+          </mat-form-field>
+        </div>
+  
+        <button mat-raised-button color="primary" type="submit" (click)="saveStudent(editStudentForm)" class="mt-4 w-full">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+  
 
+
+<!-- 
 
 
 <div class="w-96 flex flex-col ml-12 mt-16" >
@@ -43,11 +96,11 @@
 
         <mat-label class="text-xs mb-1" >Remark</mat-label>
       <mat-form-field appearance="outline" >
-        <input matInput formControlName="remark" type="text" placeholder="Enter your remark" required>
+        <input matInput formControlName="remark" type="text" placeholder="Enter your remark">
       </mat-form-field>
     </div>
   
       <button mat-raised-button color="primary" type="submit" (click)="saveStudent(this.editStudentForm)" >Save</button>
     
     </form>
-  </div>
+  </div> -->

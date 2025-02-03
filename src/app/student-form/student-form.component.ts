@@ -70,6 +70,41 @@ export class StudentFormComponent implements OnInit {
 
    }
 
+  deleteStudent(studentNumber: any) {
+    if (!studentNumber) {
+        console.error('Invalid student number:', studentNumber);
+        alert('Invalid student number!');
+        return;
+    }
+
+    console.log(`Student ${studentNumber} about to delete`);
+
+    this.studentService1.deleteStudent(studentNumber.toString()).subscribe({
+      next: () => {
+        console.log(`Student ${studentNumber} deleted successfully`);
+        alert('Student deleted successfully!');
+
+        this.loadStudents(); // ✅ Calls method to refresh the list dynamically
+        
+      },
+      error: (err) => {
+        console.error('Error deleting student:', err);
+        alert('Failed to delete student.');
+      }
+    });
+}
+
+loadStudents() {
+  this.studentService1.getStudents().subscribe({
+      next: (students) => {
+          this.students = students; // ✅ Updates the students list
+      },
+      error: (err) => {
+          console.error('Error fetching students:', err);
+      }
+  });
+}
+
   }
   
 

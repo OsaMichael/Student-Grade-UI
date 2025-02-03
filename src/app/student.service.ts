@@ -36,5 +36,10 @@ export class StudentService {
   editStudentNew(student: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/UpdateStudent`, student );
   }
+
+  deleteStudent(studentNumber: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/deleteStudent/${studentNumber}`);
+}
+
 }
 
