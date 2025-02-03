@@ -12,5 +12,6 @@ export const appRoutes: Routes = [
   { path: 'students/add', component: StudentGradeFormComponent },
   { path: 'students/edit/:id', component: StudentEditFormComponent },
   { path: 'edit-student/:studentNumber', component: StudentFormComponent },
+  { path: 'students/edit/:studentNumber', component: StudentEditFormComponent },
 ];
 

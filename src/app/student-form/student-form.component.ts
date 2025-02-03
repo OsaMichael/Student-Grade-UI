@@ -44,7 +44,7 @@ export class StudentFormComponent implements OnInit {
       next: (studentsData) => {
        this.students = studentsData; 
 
-       this.router.navigate(['/students']);
+      //  this.router.navigate(['/students']);
       },
       error: (err) => {
          console.error('Error fetching students:', err);
@@ -53,27 +53,22 @@ export class StudentFormComponent implements OnInit {
      });
    }
 
-//   selectStudent(student: any) {
-//    this.selectedStudent = structuredClone(student); 
-// }
 
    selectStudent(student1: any) {
-    this.selectedStudent = { ...student1 }; // Clone the object to prevent binding issues
+    let students: any[] = JSON.parse(localStorage.getItem('students') || '[]');
+    if (!Array.isArray(students)) {
+      students = []; // Reset to an empty array if it's not an array
+    }
+// Remove any existing entry for this student
+    students = students.filter(s => s.studentNumber !== student1.studentNumber);
+// Add the new selected student
+    students.push(student1);
+    localStorage.setItem('students',  JSON.stringify(student1) )
+    JSON.parse(localStorage.getItem('students') || '[]');
+    console.log('The students', student1)
+    this.router.navigate([`./students/edit/${student1.studentNumber}`])
+
    }
-
-  updateStudent(student1: any) {
-    this.studentService1.editStudent(student1).subscribe({
-      next: () => {
-        this.student(); // Refresh the list
-        this.selectedStudent = null; // Hide the form
-      },
-      error: (err) => console.error('Error updating student:', err),
-    });
-  }
-
-   saveStudent() {
-    this.save.emit(this.student);
-  }
 
   }
   
