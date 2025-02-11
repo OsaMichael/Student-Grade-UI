@@ -1,0 +1,76 @@
+<div class="form-container">
+    <h2>Register New Student</h2>
+    <form (ngSubmit)="registerStudent()" #studentRegisterForm="ngForm" class="form">
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Student Name</mat-label>
+        <input matInput type="text" id="studentFullName" name="studentFullName"
+          [(ngModel)]="student.studentFullName" required #studentFullName="ngModel"/>
+        <mat-error *ngIf="studentFullName?.invalid && studentFullName?.touched">Name is required.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Phone Number</mat-label>
+        <input matInput type="text" id="phone" name="phone"
+          [(ngModel)]="student.phone" required #phone="ngModel"/>
+        <mat-error *ngIf="phone?.invalid && phone?.touched">Phone Number is required.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Address</mat-label>
+        <input matInput type="text" id="address" name="address"
+          [(ngModel)]="student.address" required #address="ngModel"/>
+        <mat-error *ngIf="address?.invalid && address?.touched">Address is required.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>State</mat-label>
+        <input matInput type="text" id="state" name="state"
+          [(ngModel)]="student.state" required #state="ngModel"/>
+        <mat-error *ngIf="state?.invalid && state?.touched">State is required.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="dobPicker" id="dateOfBirth" name="dateOfBirth"
+          [(ngModel)]="student.dateOfBirth" required #dateOfBirth="ngModel"/>
+        <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+        <mat-datepicker #dobPicker></mat-datepicker>
+        <mat-error *ngIf="dateOfBirth?.invalid && dateOfBirth?.touched">DOB is required.</mat-error>
+      </mat-form-field>
+      
+
+      <!-- <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput type="date" id="dateOfBirth" name="dateOfBirth"
+          [(ngModel)]="student.dateOfBirth" required #dateOfBirth="ngModel"/>
+        <mat-error *ngIf="dateOfBirth?.invalid && dateOfBirth?.touched">DOB is required.</mat-error>
+      </mat-form-field> -->
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Faculty</mat-label>
+        <mat-select name="faculty" [(ngModel)]="student.faculty" required #faculty="ngModel">
+          <mat-option *ngFor="let faculty of faculties" [value]="faculty">
+            {{ faculty }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="faculty?.invalid && faculty?.touched">Faculty is required.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Department</mat-label>
+        <mat-select name="department" [(ngModel)]="student.department" required #department="ngModel">
+          <mat-option *ngFor="let department of departments" [value]="department">
+            {{ department }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="department?.invalid && department?.touched">Department is required.</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit"
+        [disabled]="studentRegisterForm.invalid">
+        Submit
+      </button>
+    </form>
+  </div>
+  

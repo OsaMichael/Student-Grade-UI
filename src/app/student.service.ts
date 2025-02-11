@@ -7,8 +7,26 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
   private apiUrl = 'http://localhost:28540/api/studentgrade';
+  private apiUrl2 = 'http://localhost:28540/api/student';
 
   constructor(private http: HttpClient) {} 
+
+  registerStudent(student: any): Observable<any> {
+    console.log('the now new today ',student);
+    alert('about to call api');
+    return this.http.post(`${this.apiUrl2}/RegisterStudent`, student );
+  }
+  
+  
+  getAllStudents(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl2}/AllStudents`); 
+  }
+
+  updateStudentNew(student: any): Observable<any> {
+    return this.http.put(`${this.apiUrl2}/UpdateStudent`, student );
+  }
+  
+////////////////////
 
   addStudent(student: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/AddGrade`, student );
@@ -38,8 +56,10 @@ export class StudentService {
   }
 
   deleteStudent(studentNumber: string): Observable<any> {
+    alert('Are you sure you want to delete?');
     return this.http.delete(`${this.apiUrl}/deleteStudent/${studentNumber}`);
 }
+
 
 }
 

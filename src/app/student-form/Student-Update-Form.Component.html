@@ -1,0 +1,68 @@
+<div class="flex justify-center items-center min-h-screen">
+    <div class="w-96 flex flex-col bg-white p-8 shadow-lg rounded-lg">
+      <h3 class="text-red-600 text-3xl mb-8 text-center">Edit Student</h3>
+      
+      <form [formGroup]="updateStudentForm" (ngSubmit)="retrieveId()">
+        <div class="flex flex-col">
+          <mat-label class="text-xs mb-1 text-red-600">Student Name</mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="studentFullName" type="text" placeholder="Enter your student name" required>
+          </mat-form-field>
+        </div>
+  
+        <div class="flex flex-col">
+          <mat-label class="text-xs mb-1">Student Number</mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput formControlName="studentNumber" type="text" placeholder="Enter your student number" required>
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col">
+            <mat-label class="text-xs mb-1">Phone Number</mat-label>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="phone" type="text" placeholder="Enter your phone number" required>
+            </mat-form-field>
+          </div>
+  
+          <div class="flex flex-col">
+            <mat-label class="text-xs mb-1">Address</mat-label>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="address" type="text" placeholder="Enter your address" required>
+            </mat-form-field>
+          </div>
+
+          <div class="flex flex-col">
+            <mat-label class="text-xs mb-1">State</mat-label>
+            <mat-form-field appearance="outline">
+              <input matInput formControlName="state" type="text" placeholder="Enter your state" required>
+            </mat-form-field>
+          </div>
+
+        <div class="flex flex-col">
+          <mat-label class="text-xs mb-1">Faculty</mat-label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="faculty">
+              <mat-option *ngFor="let faculty of faculties" [value]="faculty">{{ faculty }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <div class="flex flex-col">
+          <mat-label class="text-xs mb-1">Department</mat-label>
+          <mat-form-field appearance="outline">
+            <mat-select formControlName="department">
+              <mat-option *ngFor="let depart of departments" [value]="depart">{{ depart }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" (click)="saveStudent(updateStudentForm)" class="mt-4 w-full">
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+  
+
+
+

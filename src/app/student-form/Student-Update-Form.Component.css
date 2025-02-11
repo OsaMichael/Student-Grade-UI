@@ -1,0 +1,73 @@
+/* Centering the form on the screen */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  /* Form card styling */
+  .form-card {
+    width: 24rem; /* 96px */
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header Styling */
+  .form-card h3 {
+    font-size: 1.75rem;
+    color: #dc2626;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Form field container */
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  /* Labels */
+  .mat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Required field labels in red */
+  .mat-label.text-red {
+    color: #dc2626;
+  }
+  
+  /* Button Styling */
+  button.mat-raised-button {
+    width: 100%;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+  }
+  
+  /* Hover effect for buttons */
+  button.mat-raised-button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .form-card {
+      width: 90%;
+      padding: 1.5rem;
+    }
+  
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  
