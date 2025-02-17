@@ -49,4 +49,12 @@ div {
       padding: 8px;
     }
   }
-  
+  th.mat-mdc-header-cell {
+    background-color: #f9f9f9 !important; /* Light gray, removes yellow */
+    color: #555 !important; /* Softer dark gray text */
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0; /* Subtle border */
+  }

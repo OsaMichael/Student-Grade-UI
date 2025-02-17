@@ -39,14 +39,6 @@
         <mat-error *ngIf="dateOfBirth?.invalid && dateOfBirth?.touched">DOB is required.</mat-error>
       </mat-form-field>
       
-
-      <!-- <mat-form-field appearance="outline" class="form-field">
-        <mat-label>Date of Birth</mat-label>
-        <input matInput type="date" id="dateOfBirth" name="dateOfBirth"
-          [(ngModel)]="student.dateOfBirth" required #dateOfBirth="ngModel"/>
-        <mat-error *ngIf="dateOfBirth?.invalid && dateOfBirth?.touched">DOB is required.</mat-error>
-      </mat-form-field> -->
-  
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Faculty</mat-label>
         <mat-select name="faculty" [(ngModel)]="student.faculty" required #faculty="ngModel">

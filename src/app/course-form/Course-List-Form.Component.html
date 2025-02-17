@@ -1,0 +1,35 @@
+<div>
+    <!-- <h3>List of Students</h3> -->
+    <table mat-table [dataSource]="students" class="mat-elevation-z8">
+      
+      <ng-container matColumnDef="courseName">
+        <th mat-header-cell *matHeaderCellDef> Course Name </th>
+        <td mat-cell *matCellDef="let student">{{ student.courseName }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="courseCode">
+        <th mat-header-cell *matHeaderCellDef>Course Code </th>
+        <td mat-cell *matCellDef="let student">{{ student.courseCode }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let student">
+          <button mat-button (click)="selectStudent2(student)">Edit</button>
+          <button mat-button (click)="deleteStudent(student.courseCode)">Delete</button>
+        </td>
+
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="['courseName', 'courseCode', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['courseName', 'courseCode','actions']"></tr>
+    </table>
+  
+    <!-- <app-student-form *ngIf="selectedStudent" [student]="selectedStudent" (save)="updateStudent($event)"></app-student-form>
+   -->
+  </div>
+  
+
+
+
+
+

@@ -1,0 +1,36 @@
+<div class="form-container">
+    <h2>Add Courses</h2>
+    <form (ngSubmit)="addNewCourses()" #studentCourseForm="ngForm" class="form">
+  
+      <!-- Course Name Dropdown -->
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Course Name</mat-label>
+        <mat-select name="courseName" [(ngModel)]="course.courseName" required #courseName="ngModel">
+          <mat-option *ngFor="let course of courses" [value]="course">
+            {{ course }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="courseName.invalid && courseName.touched">
+          Course Name is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Course Code</mat-label>
+        <mat-select name="courseCode" [(ngModel)]="course.courseCode" required #courseCode="ngModel">
+          <mat-option *ngFor="let course of courseCodeses" [value]="course">
+            {{ course }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="courseCode.invalid && courseCode.touched">
+          Course Code is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="studentCourseForm.invalid">
+        Submit
+      </button>
+  
+    </form>
+  </div>
+  

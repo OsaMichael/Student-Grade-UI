@@ -13,6 +13,9 @@ import { RouterModule } from '@angular/router';
       <li><a routerLink="/students/addNew" routerLinkActive="active">Register Student</a></li>
       <li><a routerLink="/students/add" routerLinkActive="active">Assign Grade</a></li>
       <li><a routerLink="/students" routerLinkActive="active">Grade Students</a></li>
+      <li><a routerLink="/students/addCourse" routerLinkActive="active">Add Courses</a></li>
+      <li><a routerLink="/course/list" routerLinkActive="active">Courses</a></li>
+      <li><a routerLink="/course/registration" routerLinkActive="active">Register Courses</a></li>
       </ul>
     </nav>
   `,

@@ -15,20 +15,22 @@ import { MatTableModule } from '@angular/material/table';
 
 
 @Component({
-  selector: 'app-student-form',
+  selector: 'app-course-form',
   standalone: true,
   imports: [CommonModule, FormsModule,MatInputModule,MatFormFieldModule,MatButtonModule, MatOptionModule, MatSelectModule,MatTableModule],
-  templateUrl: './student-list-form.component.html',
-  styleUrls: ['./student-list-form.component.css'],
+  templateUrl: './course-list-form.component.html',
+  styleUrls: ['./course-list-form.component.css'],
 })
-export class StudentListFormComponent implements OnInit {
-    departments: string[] = ['Adult Education', 'Computer Science', 'Electrical', 'Animal Science', 'Art'];
-    faculties: string[] = ['Education', 'Sciences', 'Engineering', 'Agric', 'Art'];
+export class CourseListFormComponent implements OnInit {
+
+    courses: string[] = ['GST101', 'GST012', 'Data Structures', 'Algorithms', 'Computer Networks'];
+    courseCodeses: string[] = ['101','102','COM102','COM111','GST101']
   students: any[] = [];
   selectedStudent: any | null = null;
-  //@Input() student1: any = {};maok
-  displayedColumns: string[] = ['studentFullName','studentNumber', 'phone','address', 'state', 'dateOfBirth','faculty','department','actions'];
-  @Input() student: any = { studentFullName: '', studentNumber: '', phone: '', address: '', state: '', dateOfBirth:'', faculty:'' ,department:''};
+
+  course: any = { courseName: '',courseCode: '' };
+  displayedColumns: string[] = ['courseName','courseCode','actions'];
+  @Input() student: any = { courseName: '', courseCode: ''};
   @Output() save = new EventEmitter<any>();
 
   constructor(
@@ -39,15 +41,15 @@ export class StudentListFormComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.studentService1.getAllStudents().subscribe({
+    this.studentService1.getCourses().subscribe({
       next: (studentsData) => {
        this.students = studentsData; 
 
-        this.router.navigate(['/students/list']);
+        this.router.navigate(['/course/list']);
       },
       error: (err) => {
-         console.error('Error fetching students:', err);
-       alert('Failed to fetch students. Please try again.');
+         console.error('Error fetching course:', err);
+       alert('Failed to fetch courses. Please try again.');
       },
      });
    }
