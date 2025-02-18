@@ -1,0 +1,89 @@
+/* Container Styling */
+.course-list-container {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Table Styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th {
+    background: #6200ea; /* Purple Header */
+    color: white;
+    font-size: 16px;
+    text-align: left;
+    padding: 12px;
+  }
+  
+  td {
+    padding: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Table Row Hover Effect */
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Button Styling */
+  button {
+    margin-right: 5px;
+    font-weight: bold;
+  }
+  
+  /* Edit Button */
+  button[color="primary"] {
+    background-color: #1976d2;
+    color: white;
+  }
+  
+  button[color="primary"]:hover {
+    background-color: #115293;
+  }
+  
+  /* Delete Button */
+  button[color="warn"] {
+    background-color: #d32f2f;
+    color: white;
+  }
+  
+  button[color="warn"]:hover {
+    background-color: #b71c1c;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .course-list-container {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    th, td {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    button {
+      font-size: 12px;
+      padding: 6px;
+    }
+  }
+  
+  th.mat-mdc-header-cell {
+    background-color: #f9f9f9 !important; /* Light gray, removes yellow */
+    color: #555 !important; /* Softer dark gray text */
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0; /* Subtle border */
+  }

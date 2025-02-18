@@ -1,0 +1,97 @@
+<div class="course-list-container">
+    <h2>Registered Courses</h2>
+  
+    <!-- Search Section -->
+    <mat-form-field appearance="outline">
+      <mat-label>Enter Student Number</mat-label>
+      <input matInput [(ngModel)]="searchStudentNumber" placeholder="Search by Student Number">
+    </mat-form-field>
+    <button mat-button color="primary" (click)="searchStudent()">Search</button>
+  
+    <!-- Table -->
+    <table mat-table [dataSource]="filteredStudents" class="mat-elevation-z8">
+      
+      <!-- Student Number Column -->
+      <ng-container matColumnDef="studentNumber">
+        <th mat-header-cell *matHeaderCellDef>Student Number</th>
+        <td mat-cell *matCellDef="let student">{{ student.studentNumber }}</td>
+      </ng-container>
+  
+      <!-- Course Name Column -->
+      <ng-container matColumnDef="courseName">
+        <th mat-header-cell *matHeaderCellDef>Course Name</th>
+        <td mat-cell *matCellDef="let student">{{ student.courseName }}</td>
+      </ng-container>
+  
+      <!-- Course Code Column -->
+      <ng-container matColumnDef="courseCode">
+        <th mat-header-cell *matHeaderCellDef>Course Code</th>
+        <td mat-cell *matCellDef="let student">{{ student.courseCode }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="dateOfReg">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let student">{{ student.dateOfReg }}</td>
+      </ng-container>
+  
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let student"> 
+          <!-- <button mat-button color="primary" (click)="selectStudent3(student)">Edit</button>
+          <button mat-button color="warn" (click)="deleteStudent(student.courseCode)">Delete</button> -->
+        </td>
+      </ng-container> 
+  
+      <!-- Table Headers & Rows -->
+      <tr mat-header-row *matHeaderRowDef="['studentNumber', 'courseName', 'courseCode', 'dateOfReg']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['studentNumber', 'courseName', 'courseCode','dateOfReg', 'actions']"></tr>
+  
+    </table>
+  </div>
+  
+
+<!-- <div class="course-list-container">
+    <h2>Registered Courses</h2>
+  
+    <table mat-table [dataSource]="students" class="mat-elevation-z8">
+  
+      
+      <ng-container matColumnDef="studentNumber">
+        <th mat-header-cell *matHeaderCellDef>Student Number</th>
+        <td mat-cell *matCellDef="let student">{{ student.studentNumber }}</td>
+      </ng-container>
+  
+  
+      <ng-container matColumnDef="courseName">
+        <th mat-header-cell *matHeaderCellDef>Course Name</th>
+        <td mat-cell *matCellDef="let student">{{ student.courseName }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="courseCode">
+        <th mat-header-cell *matHeaderCellDef>Course Code</th>
+        <td mat-cell *matCellDef="let student">{{ student.courseCode }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="dateOfReg">
+        <th mat-header-cell *matHeaderCellDef>date</th>
+        <td mat-cell *matCellDef="let student">{{ student.dateOfReg }}</td>
+      </ng-container>
+      
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let student">
+          <button mat-button color="primary" (click)="selectStudent3(student)">Edit</button>
+          <button mat-button color="warn" (click)="deleteStudent(student.courseCode)">Delete</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['studentNumber', 'courseName', 'courseCode', 'dateOfReg', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['studentNumber', 'courseName', 'courseCode','dateOfReg', 'actions']"></tr>
+  
+    </table>
+  </div>
+  
+
+ -->

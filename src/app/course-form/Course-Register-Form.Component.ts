@@ -49,7 +49,7 @@ export class CourseRegistrationComponent  implements OnInit {
       next: (response) => {
         console.log(`Response: ${response.message}`);
         alert(`Response: ${response.message}`); 
-        //this.router.navigate(['/courses']);
+        this.router.navigate(['/course/registered-courses']);
       },
       error: (err) => {
         console.error('Error adding student:', err);

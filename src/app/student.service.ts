@@ -79,17 +79,28 @@ getCourses(): Observable<any[]> {
   return this.http.get<any[]>(`${this.apiUrl3}/getCourses`); 
 }
 
+getRegisteredCourseByStudentNumber(studentNumber: string): Observable<any[]> {
+  return this.http.get<any[]>(`${this.apiUrl3}/getCoursebyStudentNumber,${studentNumber}`); 
+}
+//
 // register course
-registerCourse(course: any): Observable<any> {
-  console.log('about to register course ',course);
+registerCourse(student: any): Observable<any> {
+  console.log('about to register course ',student);
   alert('about to call api');
 //const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-return this.http.post(`${this.apiUrl3}/courseRegrd`, course);
+return this.http.post(`${this.apiUrl3}/CourseRegistration`, student);
 }
 
 getStudentCourses(studentNumber: string): Observable<any> {
 return this.http.get(`${this.apiUrl3}/course/${studentNumber}`);
 }
+
+getAllSRegisterCourses(): Observable<any[]> {
+  console.log('about to register course ');
+  return this.http.get<any[]>(`${this.apiUrl3}/getAllRegisteredCourses`); 
+}
+
+
 
 }
 

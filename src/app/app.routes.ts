@@ -10,11 +10,14 @@ import { StudentUpdateFormComponent } from './student-form/Student-Update-Form.C
 import { CourseFormComponent } from './course-form/Course-Form-Form.Component';
 import { CourseListFormComponent } from './course-form/Course-List-Form.Component';
 import { CourseRegistrationComponent } from './course-form/Course-Register-Form.Component';
+import { CourseRegisterListFormComponent } from './course-form/Course-Register-List-Form.Component';
+import { StudentPortalComponent } from './student-portal/student-portal.component';
 //import { StudentListFormComponent } from './student-form/Student-List-Form.Component';
 
 
 export const appRoutes: Routes = [
-  { path: '', redirectTo: '/students/list', pathMatch: 'full' }, 
+  //{ path: '', redirectTo: '/students/list', pathMatch: 'full' },
+  { path: '', component: StudentPortalComponent },  
   { path: 'students', component: StudentFormComponent },   
   { path: 'students/add', component: StudentGradeFormComponent },
   { path: 'students/edit/:id', component: StudentEditFormComponent },
@@ -25,5 +28,23 @@ export const appRoutes: Routes = [
   { path: 'students/update/:studentNumber', component: StudentUpdateFormComponent },
   { path: 'students/addCourse', component: CourseFormComponent },
   { path: 'course/list', component: CourseListFormComponent },
-  { path: 'course/registration', component: CourseRegistrationComponent }
+  { path: 'course/registration', component: CourseRegistrationComponent },
+  { path: 'course/registered-courses', component: CourseRegisterListFormComponent }
 ];
+//
+
+// const routes: Routes = [
+//   { path: '', component: StudentPortalComponent },  // Home Page
+//   { path: 'students/list', component: StudentListComponent },
+//   { path: 'students/addNew', component: RegisterStudentComponent },
+//   { path: 'course/list', component: CourseListComponent },
+//   { path: 'course/registration', component: CourseRegistrationComponent },
+//   { path: 'students/add', component: AssignGradeComponent },
+//   { path: 'course/registered-courses', component: RegisteredCoursesComponent },
+// ];
+
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule]
+// })
+// export class AppRoutingModule { }
