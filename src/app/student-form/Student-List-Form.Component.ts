@@ -12,6 +12,11 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+
 
 
 @Component({
@@ -104,7 +109,47 @@ loadStudents() {
   });
 }
 
-  }
+ // Export to Excel
+ exportToExcel(): void {
+  const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.students);
+  const workbook: XLSX.WorkBook = { Sheets: { 'Students': worksheet }, SheetNames: ['Students'] };
+  const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+
+  const fileName = `Students_${new Date().toISOString()}.xlsx`;
+  const data: Blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
+  saveAs(data, fileName);
+}
+
+// Export to PDF
+exportToPDF(): void {
+  const doc = new jsPDF();
+  doc.text('Student List', 10, 10);
+  const headers = [['Full Name', 'Student Number', 'Phone', 'Address', 'State', 'DOB', 'Faculty', 'Department']];
+
+  const studentData = this.students.map(student => [
+    student.studentFullName,
+    student.studentNumber,
+    student.phone,
+    student.address,
+    student.state,
+    student.dateOfBirth,
+    student.faculty,
+    student.department
+  ]);
+
+  (doc as any).autoTable({
+    head: headers,
+    body: studentData,
+    startY: 20
+  });
+
+  doc.save(`Students_${new Date().toISOString()}.pdf`);
+}
+
+
+
+
+}
   
 
 
