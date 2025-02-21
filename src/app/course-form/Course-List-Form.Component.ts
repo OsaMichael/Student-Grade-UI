@@ -28,9 +28,9 @@ export class CourseListFormComponent implements OnInit {
   students: any[] = [];
   selectedStudent: any | null = null;
 
-  course: any = { courseName: '',courseCode: '' };
-  displayedColumns: string[] = ['courseName','courseCode','actions'];
-  @Input() student: any = { courseName: '', courseCode: ''};
+  course: any = { courseName: '',courseCode: '',courseUnit:'' };
+  displayedColumns: string[] = ['courseName','courseCode','courseUnit','actions'];
+  @Input() student: any = { courseName: '', courseCode: '',courseUnit:''};
   @Output() save = new EventEmitter<any>();
 
   constructor(

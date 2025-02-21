@@ -27,6 +27,13 @@
         </mat-error>
       </mat-form-field>
   
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>course Unit</mat-label>
+        <input matInput type="text" id="name" name="name"
+          [(ngModel)]="course.courseUnit"required #name="ngModel"/>
+        <mat-error *ngIf="name.invalid && name.touched">course Unit is required.</mat-error>
+      </mat-form-field>
+
       <button mat-raised-button color="primary" type="submit" [disabled]="studentCourseForm.invalid">
         Submit
       </button>

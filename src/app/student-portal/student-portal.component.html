@@ -14,6 +14,78 @@
         <h3>Register Student</h3>
       </div>
   
+      <div class="action-card" routerLink="/students/addCourse">
+        <mat-icon>book1</mat-icon>
+        <h3>Add Courses</h3>
+      </div>
+  
+      <div class="action-card" routerLink="/course/list">
+        <mat-icon>book</mat-icon>
+        <h3>Available Courses</h3>
+      </div>
+  
+      <div class="action-card" routerLink="/course/registration">
+        <mat-icon>assignment</mat-icon>
+        <h3>Course Registration</h3>
+      </div>
+
+      <div class="action-card" routerLink="/course/registered-courses">
+        <mat-icon>checklist</mat-icon>
+        <h3>All Registered Courses</h3>
+      </div>
+  
+      <div class="action-card" routerLink="/students/add">
+        <mat-icon>grade</mat-icon>
+        <h3>Assign Grade</h3>
+      </div>
+
+      <div class="action-card" routerLink="/students">
+        <mat-icon>grades</mat-icon>
+        <h3>View Assign Grade</h3>
+      </div>
+  
+     
+    </section>
+  </div>
+   
+
+<!-- 
+@if (!isLoggedIn) {
+    <div class="login-container">
+      <mat-card>
+        <mat-card-title>Student Login</mat-card-title>
+        <mat-card-content>
+          <form (ngSubmit)="login()">
+            <mat-form-field class="full-width">
+              <mat-label>Student Number</mat-label>
+              <input matInput [(ngModel)]="studentNumber" name="studentNumber" required />
+            </mat-form-field>
+  
+            <mat-form-field class="full-width">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" [(ngModel)]="password" name="password" required />
+            </mat-form-field>
+  
+            <button mat-raised-button color="primary" type="submit">Login</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+  
+
+  @if (isLoggedIn) {
+    <section class="portal-actions">
+      <div class="action-card" routerLink="/students/list">
+        <mat-icon>group</mat-icon>
+        <h3>View Students</h3>
+      </div>
+  
+      <div class="action-card" routerLink="/students/addNew">
+        <mat-icon>person_add</mat-icon>
+        <h3>Register Student</h3>
+      </div>
+  
       <div class="action-card" routerLink="/course/list">
         <mat-icon>book</mat-icon>
         <h3>View Courses</h3>
@@ -34,5 +106,6 @@
         <h3>All Registered Courses</h3>
       </div>
     </section>
-  </div>
-  
+  }
+   -->
+

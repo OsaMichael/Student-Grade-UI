@@ -26,7 +26,7 @@ import { MatNativeDateModule } from '@angular/material/core';
   styleUrls: ['./course-form-form.component.css'],
 })
 export class CourseFormComponent implements OnInit {
-  course: any = { courseName: '',courseCode: '' };
+  course: any = { courseName: '',courseCode: '' ,courseUnit:''};
   courses: string[] = ['GST101', 'GST012', 'Data Structures', 'Algorithms', 'Computer Networks'];
   courseCodeses: string[] = ['101','102','COM102','COM111','GST101']
 
