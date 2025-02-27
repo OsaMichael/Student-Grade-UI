@@ -1,0 +1,70 @@
+<div class="fee-payment-container">
+    <h2>School Fees Payment</h2>
+  
+    <!-- Search Student -->
+    <div class="search-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter Student Number</mat-label>
+        <input matInput [(ngModel)]="searchStudentNumber" (input)="searchStudent()" placeholder="Search by Student Number">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="searchStudent()">Search</button>
+    </div>
+  
+    <!-- Payment List Table -->
+    <table mat-table [dataSource]="filteredStudents" class="mat-elevation-z8">
+  
+      <!-- Student Number Column -->
+      <ng-container matColumnDef="studentNumber">
+        <th mat-header-cell *matHeaderCellDef> Student Number </th>
+        <td mat-cell *matCellDef="let student">{{ student.studentNumber }}</td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let student">{{ student.name }}</td>
+      </ng-container>
+  
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let student">{{ student.email }}</td>
+      </ng-container>
+  
+      <!-- Amount Paid Column -->
+      <ng-container matColumnDef="amountPaid">
+        <th mat-header-cell *matHeaderCellDef> Amount Paid </th>
+        <td mat-cell *matCellDef="let student">{{ student.amount | currency:'NGN' }}</td>
+      </ng-container>
+  
+      <!-- Transaction Reference -->
+      <ng-container matColumnDef="transReference">
+        <th mat-header-cell *matHeaderCellDef> Transaction Reference </th>
+        <td mat-cell *matCellDef="let student">{{ student.transReference }}</td>
+      </ng-container>
+  
+      <!-- Currency -->
+      <ng-container matColumnDef="currency">
+        <th mat-header-cell *matHeaderCellDef> Currency </th>
+        <td mat-cell *matCellDef="let student">{{ student.currency }}</td>
+      </ng-container>
+  
+      <!-- Payment Date -->
+      <ng-container matColumnDef="paymentDate">
+        <th mat-header-cell *matHeaderCellDef> Payment Date </th>
+        <td mat-cell *matCellDef="let student">
+          {{ student.transDate | date:'medium' }}
+        </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="remark">
+        <th mat-header-cell *matHeaderCellDef> Remark </th>
+        <td mat-cell *matCellDef="let student">{{ student.remark }}</td>
+      </ng-container>
+      <!-- Table Headers & Rows -->
+      <tr mat-header-row *matHeaderRowDef="['studentNumber', 'name', 'email', 'amountPaid', 'transReference', 'currency', 'paymentDate','remark']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['studentNumber', 'name', 'email', 'amountPaid', 'transReference', 'currency', 'paymentDate','remark']"></tr>
+  
+    </table>
+  </div>
+  

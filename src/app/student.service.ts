@@ -10,6 +10,7 @@ export class StudentService {
   private apiUrl = 'http://localhost:28540/api/studentgrade';
   private apiUrl2 = 'http://localhost:28540/api/student';
   private apiUrl3 = 'http://localhost:28540/api/course';
+  private apiUrl4 = 'http://localhost:28540/api/payment';
   courseName: any;
 
   constructor(private http: HttpClient) {} 
@@ -100,7 +101,31 @@ getAllSRegisterCourses(): Observable<any[]> {
   return this.http.get<any[]>(`${this.apiUrl3}/getAllRegisteredCourses`); 
 }
 
+/// payment
 
+processPayment(payment: any): Observable<any> {
+  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  return this.http.post(`${this.apiUrl4}/initialize`, JSON.stringify(payment), { headers });
+}
+
+processPayment2(payment: any): Observable<any> {
+  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  return this.http.post(`${this.apiUrl4}/process`, JSON.stringify(payment), { headers });
+}
+
+getPaymentHistory(studentNumber: string): Observable<any> {
+  return this.http.get(`${this.apiUrl4}/history/${studentNumber}`);
+}
+
+getAllPayments(): Observable<any[]> {
+  console.log('about to all payments ');
+  return this.http.get<any[]>(`${this.apiUrl4}/getTransactions`); 
+}
+
+getAllPayments2(): Observable<any[]> {
+  console.log('about to all payments ');
+  return this.http.get<any[]>(`${this.apiUrl4}/AllPayments`); 
+}
 
 }
 

@@ -1,0 +1,61 @@
+<div class="fee-payment-container">
+    <h2>Pay School Fees</h2>
+    <form (ngSubmit)="processPayment()" #paymentForm="ngForm">
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Student Number</mat-label>
+        <input matInput type="text" name="studentNumber" [(ngModel)]="payment.studentNumber" required>
+        <mat-error *ngIf="paymentForm.submitted && !payment.studentNumber">
+          Student Number is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Amount</mat-label>
+        <input matInput type="number" name="amount" [(ngModel)]="payment.Amount" required>
+        <mat-error *ngIf="paymentForm.submitted && !payment.Amount">
+          Amount is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" name="email" [(ngModel)]="payment.Email" required>
+        <mat-error *ngIf="paymentForm.submitted && !payment.Email">
+            Email is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" name="name" [(ngModel)]="payment.Name" required>
+        <mat-error *ngIf="paymentForm.submitted && !payment.Name">
+            Email is required.
+        </mat-error>
+      </mat-form-field>
+
+      
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Remark</mat-label>
+        <input matInput type="text" name="name" [(ngModel)]="payment.Remark" required>
+        <mat-error *ngIf="paymentForm.submitted && !payment.Remark">
+            Remark is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Payment Method</mat-label>
+        <mat-select name="paymentMethod" [(ngModel)]="payment.PaymentMethod" required>
+          <mat-option value="Credit Card">Credit Card</mat-option>
+          <mat-option value="Bank Transfer">Bank Transfer</mat-option>
+          <mat-option value="Cash">Cash</mat-option>
+        </mat-select>
+        <mat-error *ngIf="paymentForm.submitted && !payment.PaymentMethod">
+          Payment Method is required.
+        </mat-error>
+      </mat-form-field> -->
+  
+      <button mat-raised-button color="primary" type="submit">Pay Now</button>
+    </form>
+  </div>
+  

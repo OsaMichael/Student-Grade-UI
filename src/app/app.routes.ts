@@ -12,6 +12,8 @@ import { CourseListFormComponent } from './course-form/Course-List-Form.Componen
 import { CourseRegistrationComponent } from './course-form/Course-Register-Form.Component';
 import { CourseRegisterListFormComponent } from './course-form/Course-Register-List-Form.Component';
 import { StudentPortalComponent } from './student-portal/student-portal.component';
+import { FeePaymentComponent } from './fee-payment/fee-payment.component';
+import { FeeListPaymentComponent } from './fee-payment/fee-list-payment.component';
 //import { StudentListFormComponent } from './student-form/Student-List-Form.Component';
 
 
@@ -29,7 +31,11 @@ export const appRoutes: Routes = [
   { path: 'students/addCourse', component: CourseFormComponent },
   { path: 'course/list', component: CourseListFormComponent },
   { path: 'course/registration', component: CourseRegistrationComponent },
-  { path: 'course/registered-courses', component: CourseRegisterListFormComponent }
+  { path: 'course/registered-courses', component: CourseRegisterListFormComponent },
+  { path: 'payment', component: FeePaymentComponent },
+  { path: 'payment/AllPayments', component: FeeListPaymentComponent } 
+  //{ path: 'payment/history/:studentId', component: PaymentHistoryComponent } // if you create one
+
 ];
 //
 
