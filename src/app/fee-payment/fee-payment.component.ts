@@ -51,6 +51,8 @@ export class FeePaymentComponent {
 
         if (response.url) {
              window.location.href = response.url
+
+             
           //window.open(response.url, '_blank'); // Open Paystack URL in a new tab
          } else {
          alert('Failed to initialize payment.');
