@@ -19,6 +19,7 @@ import { FeeListPaymentComponent } from './fee-payment/fee-list-payment.componen
 
 export const appRoutes: Routes = [
   //{ path: '', redirectTo: '/students/list', pathMatch: 'full' },
+  //{ path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
   { path: '', component: StudentPortalComponent },  
   { path: 'students', component: StudentFormComponent },   
   { path: 'students/add', component: StudentGradeFormComponent },
