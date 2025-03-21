@@ -7,10 +7,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root' 
 })
 export class StudentService {
-  private apiUrl = 'http://localhost:28540/api/studentgrade';
-  private apiUrl2 = 'http://localhost:28540/api/student';
-  private apiUrl3 = 'http://localhost:28540/api/course';
-  private apiUrl4 = 'http://localhost:28540/api/payment';
+  //private apiUrl = 'http://localhost:28540/api/studentgrade';
+  private  apiUrl = 'https://your-dotnet-api.vercel.app/api/studentgrade';
+  //private apiUrl2 = 'http://localhost:28540/api/student';
+  private  apiUrl2 = 'https://your-dotnet-api.vercel.app/api/student';
+  //private apiUrl3 = 'http://localhost:28540/api/course';
+  private  apiUrl3 = 'https://your-dotnet-api.vercel.app/api/course';
+  //private apiUrl4 = 'http://localhost:28540/api/payment';
+  private  apiUrl4 = 'https://your-dotnet-api.vercel.app/api/payment';
   courseName: any;
 
   constructor(private http: HttpClient) {} 
